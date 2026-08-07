@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 4.3)
 project(OpenGL)
 string(JOIN "\n" EXT2
   "find_package(OpenGL REQUIRED BYPASS_PROVIDER)"
+  "list(APPEND reqVars OpenGL_FOUND)"
   ""
   )
 string(JOIN "\n" COND_OPEN
@@ -11,9 +12,6 @@ string(JOIN "\n" COND_OPEN
 string(JOIN "\n" COND_CLOSE
   ""
   "  set(__xp_opengl_found_message_shown TRUE CACHE INTERNAL \"Flag to track if OpenGL found message was shown\")"
-  "else()"
-  "  # Skip the message but still set OpenGL_FOUND"
-  "  set(OpenGL_FOUND TRUE)"
   "endif()"
   )
 xpExternPackage(BASE v0 XPDIFF "bin"
